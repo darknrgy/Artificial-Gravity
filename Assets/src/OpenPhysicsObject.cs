@@ -8,9 +8,11 @@ using System.Collections;
 
 public class OpenPhysicsObject : MonoBehaviour {
 
-    public GameObject SpaceStation;
-    public float Mass = 1.0f;
-    public Character Parent;
+    public SpinningSpaceStationPhysics SpinningSpaceStationPhysics;
+    public AirResistance AirResistance;
+    public Jetpack Jetpack;
+
+    public float Mass = 3.0f;
 
     public void Start() {
         // Create and configure rigidbody component
@@ -22,15 +24,9 @@ public class OpenPhysicsObject : MonoBehaviour {
 
         // Create a constant force component
         gameObject.AddComponent<ConstantForce>();
-
-        airResistanceForce = new AirResistanceForce(SpaceStation, gameObject, Parent);
-        jetpack = new Jetpack(gameObject, 1.0f, Parent);
-        spaceStationForce = new SpaceStationForce(gameObject);
-        
     }
 
-    protected AirResistanceForce airResistanceForce;
-    protected SpaceStationForce spaceStationForce;
+    protected SpinningSpaceStationPhysics spaceStationForce;
     protected Jetpack jetpack;
 
     void FixedUpdate() {
@@ -38,9 +34,8 @@ public class OpenPhysicsObject : MonoBehaviour {
         forceComponent.force = Vector3.zero;
         forceComponent.relativeForce = Vector3.zero;
 
-        airResistanceForce.Apply();
-        jetpack.Apply();
-        spaceStationForce.Apply();
-        //Debug.Log(forceComponent.force);
+        AirResistance.Apply(gameObject);
+        SpinningSpaceStationPhysics.Apply(gameObject);
+        Jetpack.Apply(gameObject);        
     }
 }

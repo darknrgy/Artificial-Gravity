@@ -1,0 +1,448 @@
+fileFormatVersion: 2
+guid: fe7d4f217bf5c934c8085384f8f6bf72
+timeCreated: 1463361232
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: GM_-_Foot
+    100002: GM_-_Foot 1
+    100004: GM_-_Forearm___Hand
+    100006: GM_-_Forearm___Hand 1
+    100008: GM_-_Head
+    100010: GM_-_Hip_Pivot_-_Leg
+    100012: GM_-_Hip_Pivot_-_Leg 1
+    100014: GM_-_Knee_Pivot_-_Shin___Foot
+    100016: GM_-_Knee_Pivot_-_Shin___Foot 1
+    100018: GM_-_Outer_Box
+    100020: GM_-_Shin
+    100022: GM_-_Shin 1
+    100024: GM_-_Thigh
+    100026: GM_-_Thigh 1
+    100028: GM_-_Torso
+    100030: GM_-_Upper_Arm
+    100032: GM_-_Upper_Arm 1
+    100034: group_0
+    100036: group_1
+    100038: group_10
+    100040: group_11
+    100042: group_12
+    100044: group_12 1
+    100046: group_13
+    100048: group_13 1
+    100050: group_14
+    100052: group_14 1
+    100054: group_15
+    100056: group_15 1
+    100058: group_16
+    100060: group_17
+    100062: group_17 1
+    100064: group_18
+    100066: group_18 1
+    100068: group_19
+    100070: group_19 1
+    100072: group_2
+    100074: group_20
+    100076: group_20 1
+    100078: group_21
+    100080: group_22
+    100082: group_23
+    100084: group_3
+    100086: group_4
+    100088: group_5
+    100090: group_6
+    100092: group_7
+    100094: group_8
+    100096: group_9
+    100098: ID111
+    100100: ID117
+    100102: ID168
+    100104: ID176
+    100106: ID182
+    100108: ID195
+    100110: ID201
+    100112: ID207
+    100114: ID236
+    100116: ID244
+    100118: ID257
+    100120: ID263
+    100122: ID283
+    100124: ID297
+    100126: ID303
+    100128: ID31
+    100130: ID316
+    100132: ID322
+    100134: ID342
+    100136: ID357
+    100138: ID363
+    100140: ID376
+    100142: ID382
+    100144: ID402
+    100146: ID416
+    100148: ID422
+    100150: ID435
+    100152: ID441
+    100154: ID461
+    100156: ID80
+    100158: instance_0
+    100160: instance_1
+    100162: instance_10
+    100164: instance_11
+    100166: instance_2
+    100168: instance_3
+    100170: instance_4
+    100172: instance_5
+    100174: instance_6
+    100176: instance_7
+    100178: instance_8
+    100180: instance_9
+    100182: //RootNode
+    400000: GM_-_Foot
+    400002: GM_-_Foot 1
+    400004: GM_-_Forearm___Hand
+    400006: GM_-_Forearm___Hand 1
+    400008: GM_-_Head
+    400010: GM_-_Hip_Pivot_-_Leg
+    400012: GM_-_Hip_Pivot_-_Leg 1
+    400014: GM_-_Knee_Pivot_-_Shin___Foot
+    400016: GM_-_Knee_Pivot_-_Shin___Foot 1
+    400018: GM_-_Outer_Box
+    400020: GM_-_Shin
+    400022: GM_-_Shin 1
+    400024: GM_-_Thigh
+    400026: GM_-_Thigh 1
+    400028: GM_-_Torso
+    400030: GM_-_Upper_Arm
+    400032: GM_-_Upper_Arm 1
+    400034: group_0
+    400036: group_1
+    400038: group_10
+    400040: group_11
+    400042: group_12
+    400044: group_12 1
+    400046: group_13
+    400048: group_13 1
+    400050: group_14
+    400052: group_14 1
+    400054: group_15
+    400056: group_15 1
+    400058: group_16
+    400060: group_17
+    400062: group_17 1
+    400064: group_18
+    400066: group_18 1
+    400068: group_19
+    400070: group_19 1
+    400072: group_2
+    400074: group_20
+    400076: group_20 1
+    400078: group_21
+    400080: group_22
+    400082: group_23
+    400084: group_3
+    400086: group_4
+    400088: group_5
+    400090: group_6
+    400092: group_7
+    400094: group_8
+    400096: group_9
+    400098: ID111
+    400100: ID117
+    400102: ID168
+    400104: ID176
+    400106: ID182
+    400108: ID195
+    400110: ID201
+    400112: ID207
+    400114: ID236
+    400116: ID244
+    400118: ID257
+    400120: ID263
+    400122: ID283
+    400124: ID297
+    400126: ID303
+    400128: ID31
+    400130: ID316
+    400132: ID322
+    400134: ID342
+    400136: ID357
+    400138: ID363
+    400140: ID376
+    400142: ID382
+    400144: ID402
+    400146: ID416
+    400148: ID422
+    400150: ID435
+    400152: ID441
+    400154: ID461
+    400156: ID80
+    400158: instance_0
+    400160: instance_1
+    400162: instance_10
+    400164: instance_11
+    400166: instance_2
+    400168: instance_3
+    400170: instance_4
+    400172: instance_5
+    400174: instance_6
+    400176: instance_7
+    400178: instance_8
+    400180: instance_9
+    400182: //RootNode
+    2300000: GM_-_Foot
+    2300002: GM_-_Foot 1
+    2300004: GM_-_Forearm___Hand
+    2300006: GM_-_Forearm___Hand 1
+    2300008: GM_-_Head
+    2300010: GM_-_Shin
+    2300012: GM_-_Shin 1
+    2300014: GM_-_Thigh
+    2300016: GM_-_Thigh 1
+    2300018: GM_-_Torso
+    2300020: GM_-_Upper_Arm
+    2300022: GM_-_Upper_Arm 1
+    2300024: group_12
+    2300026: group_12 1
+    2300028: group_13
+    2300030: group_13 1
+    2300032: group_14
+    2300034: group_14 1
+    2300036: group_15
+    2300038: group_15 1
+    2300040: group_17
+    2300042: group_17 1
+    2300044: group_18
+    2300046: group_18 1
+    2300048: group_19
+    2300050: group_19 1
+    2300052: group_2
+    2300054: group_20
+    2300056: group_20 1
+    2300058: group_3
+    2300060: group_4
+    2300062: group_5
+    2300064: group_6
+    2300066: group_7
+    2300068: group_8
+    2300070: group_9
+    2300072: ID168
+    2300074: ID176
+    2300076: ID182
+    2300078: ID195
+    2300080: ID201
+    2300082: ID207
+    2300084: ID236
+    2300086: ID244
+    2300088: ID257
+    2300090: ID263
+    2300092: ID283
+    2300094: ID297
+    2300096: ID303
+    2300098: ID31
+    2300100: ID316
+    2300102: ID322
+    2300104: ID342
+    2300106: ID357
+    2300108: ID363
+    2300110: ID376
+    2300112: ID382
+    2300114: ID402
+    2300116: ID416
+    2300118: ID422
+    2300120: ID435
+    2300122: ID441
+    2300124: ID461
+    2300126: ID80
+    3300000: GM_-_Foot
+    3300002: GM_-_Foot 1
+    3300004: GM_-_Forearm___Hand
+    3300006: GM_-_Forearm___Hand 1
+    3300008: GM_-_Head
+    3300010: GM_-_Shin
+    3300012: GM_-_Shin 1
+    3300014: GM_-_Thigh
+    3300016: GM_-_Thigh 1
+    3300018: GM_-_Torso
+    3300020: GM_-_Upper_Arm
+    3300022: GM_-_Upper_Arm 1
+    3300024: group_12
+    3300026: group_12 1
+    3300028: group_13
+    3300030: group_13 1
+    3300032: group_14
+    3300034: group_14 1
+    3300036: group_15
+    3300038: group_15 1
+    3300040: group_17
+    3300042: group_17 1
+    3300044: group_18
+    3300046: group_18 1
+    3300048: group_19
+    3300050: group_19 1
+    3300052: group_2
+    3300054: group_20
+    3300056: group_20 1
+    3300058: group_3
+    3300060: group_4
+    3300062: group_5
+    3300064: group_6
+    3300066: group_7
+    3300068: group_8
+    3300070: group_9
+    3300072: ID168
+    3300074: ID176
+    3300076: ID182
+    3300078: ID195
+    3300080: ID201
+    3300082: ID207
+    3300084: ID236
+    3300086: ID244
+    3300088: ID257
+    3300090: ID263
+    3300092: ID283
+    3300094: ID297
+    3300096: ID303
+    3300098: ID31
+    3300100: ID316
+    3300102: ID322
+    3300104: ID342
+    3300106: ID357
+    3300108: ID363
+    3300110: ID376
+    3300112: ID382
+    3300114: ID402
+    3300116: ID416
+    3300118: ID422
+    3300120: ID435
+    3300122: ID441
+    3300124: ID461
+    3300126: ID80
+    4300000: GM_-_Shin
+    4300002: GM_-_Foot
+    4300004: GM_-_Thigh
+    4300006: ID31
+    4300008: GM_-_Upper_Arm
+    4300010: GM_-_Forearm___Hand
+    4300012: GM_-_Shin
+    4300014: GM_-_Foot
+    4300016: GM_-_Thigh
+    4300018: ID80
+    4300020: GM_-_Upper_Arm
+    4300022: GM_-_Forearm___Hand
+    4300024: GM_-_Torso
+    4300026: GM_-_Head
+    4300028: group_2
+    4300030: group_3
+    4300032: group_4
+    4300034: group_5
+    4300036: group_6
+    4300038: ID168
+    4300040: ID176
+    4300042: ID182
+    4300044: group_7
+    4300046: ID195
+    4300048: ID201
+    4300050: ID207
+    4300052: group_8
+    4300054: group_9
+    4300056: group_12
+    4300058: ID236
+    4300060: ID244
+    4300062: group_13
+    4300064: ID257
+    4300066: ID263
+    4300068: group_14
+    4300070: group_15
+    4300072: ID283
+    4300074: group_17
+    4300076: ID297
+    4300078: ID303
+    4300080: group_18
+    4300082: ID316
+    4300084: ID322
+    4300086: group_19
+    4300088: group_20
+    4300090: ID342
+    4300092: group_12
+    4300094: ID357
+    4300096: ID363
+    4300098: group_13
+    4300100: ID376
+    4300102: ID382
+    4300104: group_14
+    4300106: group_15
+    4300108: ID402
+    4300110: group_17
+    4300112: ID416
+    4300114: ID422
+    4300116: group_18
+    4300118: ID435
+    4300120: ID441
+    4300122: group_19
+    4300124: group_20
+    4300126: ID461
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
