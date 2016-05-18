@@ -37,7 +37,7 @@ public class Elevator : MonoBehaviour {
 				if (hit.collider.name == ActivationPanel.name && !IsInMotion()) {
 					Debug.Log ("HIT /w name!!!!");
 					cforce.force = Direction * Mass * Acceleration;
-					gameObject.GetComponent<Rigidbody> ().isKinematic = false;
+//					gameObject.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeRotation; // Unfreeze Position...
 					currentMotionState = MOTION_STATE.POSITIVE;
 				} else {
 					Debug.Log ("HIT /w NO NAME!!!");
