@@ -6,7 +6,6 @@ public class Elevator : MonoBehaviour {
 	public KeyCode ActivationKeyCode;
 	public GameObject ActivationPanel;
 	public float Acceleration;
-	public float Mass;
 	public Vector3 Direction;
 
 	private GameObject playerCharacter;
@@ -24,7 +23,7 @@ public class Elevator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		playerCharacter = GameObject.Find ("Character");
-		cforce = gameObject.AddComponent<ConstantForce> ();
+		cforce = gameObject.GetComponent<ConstantForce> ();
 		currentMotionState = MOTION_STATE.AT_REST;
 	}
 
@@ -35,16 +34,9 @@ public class Elevator : MonoBehaviour {
 			RaycastHit hit = new RaycastHit ();
 			if (Physics.Raycast (playerCharacter.transform.position, forwardRay, out hit, 20.0f)) {
 				if (hit.collider.name == ActivationPanel.name && !IsInMotion()) {
-					Debug.Log ("HIT /w name!!!!");
-					cforce.force = Direction * Mass * Acceleration;
-//					gameObject.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeRotation; // Unfreeze Position...
+					cforce.force = Direction * gameObject.GetComponent<Rigidbody>().mass * Acceleration;
 					currentMotionState = MOTION_STATE.POSITIVE;
-				} else {
-					Debug.Log ("HIT /w NO NAME!!!");
 				}
-
-			} else {
-				Debug.Log ("NO HIT!!");
 			}
 		}
 	}
