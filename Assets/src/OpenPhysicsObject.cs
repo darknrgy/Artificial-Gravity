@@ -11,14 +11,15 @@ public class OpenPhysicsObject : MonoBehaviour {
     public SpinningSpaceStationPhysics SpinningSpaceStationPhysics;
     public AirResistance AirResistance;
     public Jetpack Jetpack;
+    public HUD hud;
 
     public void Start() {
-        // Create a constant force component
-        gameObject.AddComponent<ConstantForce>();
     }
 
-    protected SpinningSpaceStationPhysics spaceStationForce;
-    protected Jetpack jetpack;
+    void Update() {
+        hud.SetVelocity(GetComponent<Rigidbody>().velocity.magnitude);
+        hud.SetAltitude(926f - transform.position.magnitude);
+    }
 
     void FixedUpdate() {
         var forceComponent = GetComponent<ConstantForce>();

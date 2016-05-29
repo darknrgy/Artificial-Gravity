@@ -5058,6 +5058,9 @@ ModelImporter:
     2302876: group_7 97
     2302878: group_7 98
     2302880: group_7 99
+    2302882: group_0
+    2302884: group_1
+    2302886: group_2
     3300000: group_11
     3300002: group_11 1
     3300004: group_11 10
@@ -6499,6 +6502,9 @@ ModelImporter:
     3302876: group_7 97
     3302878: group_7 98
     3302880: group_7 99
+    3302882: group_0
+    3302884: group_1
+    3302886: group_2
     4300000: group_3
     4300002: group_4
     4300004: group_5
@@ -7940,6 +7946,9 @@ ModelImporter:
     4302876: group_14
     4302878: group_15
     4302880: group_40
+    4302882: group_0
+    4302884: group_1
+    4302886: group_2
     9500000: //RootNode
   materials:
     importMaterials: 1

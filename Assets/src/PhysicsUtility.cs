@@ -8,7 +8,7 @@ public class PhysicsUtility{
         return angularVelocity * radius;
     }
 
-    // Get the vector of the moving air
+    // Get tangent to axis
     public Vector3 GetForceVectorNormalized(Vector3 target) {
         Vector3 axisHelper = GetClosestPointOnAxis(target);
         Vector3 forceVector = Vector3.Cross(target, axisHelper).normalized;
