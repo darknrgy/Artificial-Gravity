@@ -893,6 +893,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 412418}
+  - 54: {fileID: 5469036}
+  - 138: {fileID: 13811786}
   m_Layer: 0
   m_Name: Magnet
   m_TagString: Untagged
@@ -1717,9 +1719,10 @@ GameObject:
   - 114: {fileID: 11432580}
   - 114: {fileID: 11482548}
   - 114: {fileID: 11464266}
+  - 54: {fileID: 5407844}
   m_Layer: 0
   m_Name: Dan Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1894,7 +1897,7 @@ Transform:
   m_Children:
   - {fileID: 436666}
   m_Father: {fileID: 495068}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &412162
 Transform:
   m_ObjectHideFlags: 1
@@ -1915,12 +1918,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151634}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.250002, z: -0.5899845}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0, y: -4.329001, z: 0}
+  m_LocalScale: {x: 1, y: 0.09999998, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 495068}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!4 &413352
 Transform:
   m_ObjectHideFlags: 1
@@ -3019,7 +3022,7 @@ Transform:
   - {fileID: 443966}
   - {fileID: 470174}
   m_Father: {fileID: 495068}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &483622
 Transform:
   m_ObjectHideFlags: 1
@@ -3191,16 +3194,16 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198770}
-  m_LocalRotation: {x: -0.707106, y: 0, z: 0, w: 0.7071076}
-  m_LocalPosition: {x: -39.1, y: -728.9, z: -60.18}
+  m_LocalRotation: {x: -0.5947178, y: -0.38250482, z: -0.38250473, w: 0.59471923}
+  m_LocalPosition: {x: -36.83225, y: -728.9, z: -59.54997}
   m_LocalScale: {x: 0.6292894, y: 0.6292894, z: 0.6292894}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: -65.4957, z: 0}
   m_Children:
   - {fileID: 461802}
   - {fileID: 489910}
-  - {fileID: 412418}
   - {fileID: 483510}
   - {fileID: 411522}
+  - {fileID: 412418}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &495672
@@ -5528,6 +5531,36 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174160}
   m_Mesh: {fileID: 4300072, guid: fe7d4f217bf5c934c8085384f8f6bf72, type: 3}
+--- !u!54 &5407844
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198770}
+  serializedVersion: 2
+  m_Mass: 3
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!54 &5469036
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151634}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &6540784
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -6269,8 +6302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2c97b71bfe24026a8c1e35b8323199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitalStrength: 1
-  DistanceBeforeShoesTakeEffect: 100
+  InitalStrength: 5
+  DistanceBeforeShoesTakeEffect: 20
   DebugDraw: 1
   Magnet: {fileID: 151634}
 --- !u!114 &11432580
@@ -6311,7 +6344,6 @@ MonoBehaviour:
   SpinningSpaceStationPhysics: {fileID: 11482548}
   AirResistance: {fileID: 11432580}
   Jetpack: {fileID: 11464266}
-  Mass: 1.5
 --- !u!114 &11464266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6343,6 +6375,17 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133638}
   m_Enabled: 1
+--- !u!138 &13811786
+FixedJoint:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151634}
+  m_ConnectedBody: {fileID: 5407844}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 0
 --- !u!164 &16409994
 AudioReverbFilter:
   m_ObjectHideFlags: 1

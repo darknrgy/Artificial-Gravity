@@ -5,6 +5,7 @@ public class Jetpack : MonoBehaviour {
 
     public float PowerScale = 1.0f;
     public SoundService SoundService;
+    public MagneticShoes MagneticShoes;
 
     public void Apply(GameObject target) {
         this.target = target;
@@ -37,6 +38,12 @@ public class Jetpack : MonoBehaviour {
         applyButtonToAxis(ref joyY, "Pitch Up", -1);
         applyButtonToAxis(ref joyZ, "Yaw Left", -1);
         applyButtonToAxis(ref joyZ, "Yaw Right", 1);
+
+        if (Mathf.Abs(joyVerticalThrust) > 0.90f) {
+            MagneticShoes.enabled = false;
+        } else {
+            MagneticShoes.enabled = true;
+        }
    
         if (Input.GetButton("Center Joystick")) {
             CalibrateJoystick();

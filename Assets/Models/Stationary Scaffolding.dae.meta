@@ -587,6 +587,8 @@ ModelImporter:
     101158: group_80
     101160: group_81
     101162: group_82
+    101164: ID36
+    101166: ID51
     400000: group_0
     400002: group_1
     400004: group_10
@@ -1169,6 +1171,8 @@ ModelImporter:
     401158: group_80
     401160: group_81
     401162: group_82
+    401164: ID36
+    401166: ID51
     2300000: group_0
     2300002: group_12
     2300004: group_12 1
@@ -1631,6 +1635,11 @@ ModelImporter:
     2300918: group_8 60
     2300920: group_8 61
     2300922: group_8 62
+    2300924: group_1
+    2300926: group_2
+    2300928: group_3
+    2300930: ID36
+    2300932: ID51
     3300000: group_0
     3300002: group_12
     3300004: group_12 1
@@ -2093,6 +2102,11 @@ ModelImporter:
     3300918: group_8 60
     3300920: group_8 61
     3300922: group_8 62
+    3300924: group_1
+    3300926: group_2
+    3300928: group_3
+    3300930: ID36
+    3300932: ID51
     4300000: group_0
     4300002: group_4
     4300004: group_5
@@ -2555,6 +2569,11 @@ ModelImporter:
     4300918: group_14
     4300920: group_15
     4300922: group_16
+    4300924: group_1
+    4300926: group_2
+    4300928: ID36
+    4300930: group_3
+    4300932: ID51
     9500000: //RootNode
   materials:
     importMaterials: 1
