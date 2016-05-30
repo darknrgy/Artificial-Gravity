@@ -3,15 +3,15 @@ using System.Collections;
 
 public class Jetpack : MonoBehaviour {
 
-    public float PowerScale = 1.0f;
+    public float PowerScale;
     public SoundService SoundService;
     public MagneticShoes MagneticShoes;
 
     public void Apply(GameObject target) {
         this.target = target;
 
-        float joystickAmplitude = 0.5f * powerScale;
-        float thrustAmplitude = 8.0f * powerScale;
+        float joystickAmplitude = 0.5f * PowerScale;
+        float thrustAmplitude = 8.0f * PowerScale;
 
         // Collect joystick input
         float joyX = Input.GetAxis("Roll") - xCal;
@@ -51,7 +51,7 @@ public class Jetpack : MonoBehaviour {
 
         // Apply joystick input to torque
         var rigidbody = target.GetComponent<Rigidbody>();
-        rigidbody.AddRelativeTorque(new Vector3(joyY * joystickAmplitude, joyZ * joystickAmplitude / 4, joyX * joystickAmplitude));
+        rigidbody.AddRelativeTorque(new Vector3(joyY * joystickAmplitude, joyZ * joystickAmplitude / 2, joyX * joystickAmplitude));
 
         // Apply joystick input for thrut
         rigidbody.AddRelativeForce(new Vector3(joySideThrust * thrustAmplitude, joyVerticalThrust * thrustAmplitude, joyThrust * thrustAmplitude));
@@ -114,5 +114,4 @@ public class Jetpack : MonoBehaviour {
     protected float tCal = 0;
     protected float tFwdCal = 0;
     protected float tRevCal = 0;
-    protected float powerScale = 1.0f;
 }
