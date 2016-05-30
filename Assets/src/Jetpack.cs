@@ -17,10 +17,14 @@ public class Jetpack : MonoBehaviour {
         float joyX = Input.GetAxis("Roll") - xCal;
         float joyY = Input.GetAxis("Pitch") - yCal;
         float joyZ = Input.GetAxis("Yaw") - zCal;
-        float joyVerticalThrust = Input.GetAxis("Thrust Vertical") - tvCal;
+        //float joyVerticalThrust = Input.GetAxis("Thrust Vertical") - tvCal;
         float joyThrustFwd = Input.GetAxis("Thrust Fwd") - tFwdCal;
         float joyThrustRev = Input.GetAxis("Thrust Rev") - tRevCal;
-        float joyThrust = (joyThrustFwd - joyThrustRev) / 2;
+        float joyThrustUp = Input.GetAxis("Thrust Up");
+        float joyThrustDown = Input.GetAxis("Thrust Down");
+        float joyVerticalThrust = (joyThrustUp - joyThrustDown) / 2;
+
+        float joyThrust = Input.GetAxis("Thrust") - tCal;
         float joySideThrust = 0;
 
         // Linear thrust keyboard input
