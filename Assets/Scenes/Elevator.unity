@@ -11064,6 +11064,10 @@ Prefab:
       propertyPath: Acceleration.Array.size
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 11491102, guid: 1440241fdd79f4ec685c893f6de952df, type: 2}
+      propertyPath: TargetVelocity.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 447884, guid: 1440241fdd79f4ec685c893f6de952df, type: 2}
       propertyPath: m_LocalPosition.x
       value: -5.6226616
@@ -11119,6 +11123,38 @@ Prefab:
     - target: {fileID: 11491102, guid: 1440241fdd79f4ec685c893f6de952df, type: 2}
       propertyPath: Acceleration.Array.data[5]
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491102, guid: 1440241fdd79f4ec685c893f6de952df, type: 2}
+      propertyPath: TargetVelocity.Array.data[0]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491102, guid: 1440241fdd79f4ec685c893f6de952df, type: 2}
+      propertyPath: TargetVelocity.Array.data[1]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491102, guid: 1440241fdd79f4ec685c893f6de952df, type: 2}
+      propertyPath: TargetVelocity.Array.data[2]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491102, guid: 1440241fdd79f4ec685c893f6de952df, type: 2}
+      propertyPath: TargetVelocity.Array.data[3]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491102, guid: 1440241fdd79f4ec685c893f6de952df, type: 2}
+      propertyPath: TargetVelocity.Array.data[4]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491102, guid: 1440241fdd79f4ec685c893f6de952df, type: 2}
+      propertyPath: TargetVelocity.Array.data[5]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491102, guid: 1440241fdd79f4ec685c893f6de952df, type: 2}
+      propertyPath: MotionPath.Array.data[2].y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491102, guid: 1440241fdd79f4ec685c893f6de952df, type: 2}
+      propertyPath: MotionPath.Array.data[3].y
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1440241fdd79f4ec685c893f6de952df, type: 2}

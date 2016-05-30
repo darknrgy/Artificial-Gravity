@@ -106,10 +106,16 @@ MonoBehaviour:
   MotionPath:
   - {x: 0, y: 0, z: 0}
   - {x: 10, y: 10, z: 10}
-  - {x: 15, y: 15, z: 15}
-  - {x: 20, y: 20, z: 20}
+  - {x: 15, y: 10, z: 15}
+  - {x: 20, y: 30, z: 20}
   - {x: 25, y: 25, z: 25}
-  Acceleration: 1
+  TargetVelocity:
+  - 10
+  - 10
+  - 20
+  - 10
+  - 10
+  - 10
   DebugDraw: 1
 --- !u!135 &13520858
 SphereCollider:

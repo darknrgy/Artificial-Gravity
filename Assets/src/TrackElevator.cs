@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class TrackElevator : MonoBehaviour {
-
+	// TODO, apply -LastForce at different intervals (4/6s, 5/6s, 6/6s of distance) to next point
 	public Vector3[] MotionPath;
 	public float[] TargetVelocity;
 	public bool DebugDraw;
@@ -16,13 +16,11 @@ public class TrackElevator : MonoBehaviour {
 	private Vector3[] originPath;
 	private MOTION_STATE currentMotionState;
 	private int currentTargetPoint = 0;
-	private ConstantForce constForce;
 	private Vector3 debugDirection;
 
-	private const float MIN_DIST = 3.0f;
+	private const float MIN_DIST = 1.0f;
 
-	private const float distanceDivisor = 3;
-	private float totalDistanceUntilNextPoint;
+	private Vector3 LastForce = Vector3.zero;
 
 	// Use this for initialization
 	void Start () {
@@ -33,15 +31,13 @@ public class TrackElevator : MonoBehaviour {
 		for (int i = 0; i < MotionPath.Length; ++i) {
 			originPath [i + 1] = MotionPath [i];
 		}
-
-		constForce = gameObject.GetComponent<ConstantForce> ();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (DebugDraw) {
 			for (int i = 1; i < originPath.Length; ++i) {
-				Debug.DrawRay (originPath [i - 1], originPath [i], Color.blue);
+				Debug.DrawLine (originPath [i - 1], originPath [i], Color.blue);
 			}
 		}
 
@@ -57,10 +53,10 @@ public class TrackElevator : MonoBehaviour {
 
 			Debug.Log ("Elevator is within proximity of destination point, relocating...");
 			currentTargetPoint++;
-			if (currentTargetPoint > originPath.Length) {
+			if (currentTargetPoint >= originPath.Length) {
 				currentTargetPoint = 0;
 				currentMotionState = MOTION_STATE.AT_REST;
-				constForce.force = Vector3.zero;
+				gameObject.GetComponent<Rigidbody> ().AddForce (-LastForce);
 			} else {
 				Debug.Log ("Moving to next target...");
 				moveTowardsPoint (originPath [currentTargetPoint]);
@@ -70,6 +66,7 @@ public class TrackElevator : MonoBehaviour {
 		if (currentMotionState == MOTION_STATE.IN_MOTION) {
 			float distanceUntilNextPoint = Vector3.Distance(gameObject.transform.position, originPath[currentTargetPoint]);
 			Debug.Log (string.Format ("Logging distance until next target {0}", distanceUntilNextPoint));
+			Debug.Log (string.Format ("Logging value of current velocity {0}", gameObject.GetComponent<Rigidbody> ().velocity));
 		}
 			
 		if (DebugDraw) {
@@ -81,7 +78,10 @@ public class TrackElevator : MonoBehaviour {
 
 	private void moveTowardsPoint(Vector3 p) {
 		Vector3 diff = p - gameObject.transform.position;
-		gameObject.GetComponent<Rigidbody>().AddForce(diff * gameObject.GetComponent<Rigidbody>().mass * TargetVelocity[currentTargetPoint]);
+		Vector3 force = diff * gameObject.GetComponent<Rigidbody> ().mass * TargetVelocity [currentTargetPoint];
+		gameObject.GetComponent<Rigidbody>().AddForce(force);
+		gameObject.GetComponent<Rigidbody> ().AddForce (-LastForce);
+		LastForce = force;
 		if (DebugDraw) {
 			debugDirection = diff;
 		}
