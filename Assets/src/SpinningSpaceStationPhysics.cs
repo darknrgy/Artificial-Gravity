@@ -11,7 +11,6 @@ public class SpinningSpaceStationPhysics : MonoBehaviour{
 
     public void ApplyLinear() {
         Rigidbody tRigidBody = target.GetComponent<Rigidbody>();
-        float mass = tRigidBody.mass;
         float angularVelocity = new Vector3(0, 0.05f, 0).magnitude;
         Vector3 tPosition = target.transform.position;
         Vector3 tVelocity= target.GetComponent<Rigidbody>().velocity;
@@ -32,7 +31,7 @@ public class SpinningSpaceStationPhysics : MonoBehaviour{
         Vector3 f = fNormalized * linearVelocityDelta;
 
         // Add this to velocity
-        tRigidBody.velocity += f * Time.fixedDeltaTime * mass;
+        tRigidBody.velocity += f * Time.fixedDeltaTime;
 
         // Now solve for centrifugal force
 
@@ -49,7 +48,7 @@ public class SpinningSpaceStationPhysics : MonoBehaviour{
         Vector3 centrifugalForceVector = (tPosition - physics.GetClosestPointOnAxis(tPosition)).normalized;
 
         // Add centrifugal force to velocity
-        tRigidBody.velocity += centrifugalForceVector * centrifugalForce * Time.fixedDeltaTime * mass;
+        tRigidBody.velocity += centrifugalForceVector * centrifugalForce * Time.fixedDeltaTime;
 
 
         // Now solve for anti-centrifugal force

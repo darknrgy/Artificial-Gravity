@@ -11,11 +11,6 @@ public class ArbitraryFPSController : MonoBehaviour {
         physics = new PhysicsUtility();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
     public void Apply() {
         applyTorque();
         applyLinear();
