@@ -11,6 +11,7 @@ public class OpenPhysicsObject : MonoBehaviour {
     public SpinningSpaceStationPhysics SpinningSpaceStationPhysics;
     public AirResistance AirResistance;
     public Jetpack Jetpack;
+    public ArbitraryFPSController FPSController;
     public HUD hud;
 
     public void Start() {
@@ -21,13 +22,30 @@ public class OpenPhysicsObject : MonoBehaviour {
         hud.SetAltitude(926f - transform.position.magnitude);
     }
 
-    void FixedUpdate() {
+    public void FixedUpdate() {
         var forceComponent = GetComponent<ConstantForce>();
         forceComponent.force = Vector3.zero;
         forceComponent.relativeForce = Vector3.zero;
 
         AirResistance.Apply(gameObject);
         SpinningSpaceStationPhysics.Apply(gameObject);
-        Jetpack.Apply(gameObject);        
+
+        if (jetpackEnabled) {
+            Jetpack.Apply(gameObject);
+        }
+        if (fpsControllerEnabled) {
+            FPSController.Apply();
+        }
+    }
+
+    protected bool jetpackEnabled;
+    protected bool fpsControllerEnabled;
+
+    public void SetJetpackEnabled(bool enabled = true) {
+        jetpackEnabled = enabled;
+    }
+
+    public void SetFPSControllerEnabled(bool enabled = true) {
+        fpsControllerEnabled = enabled;
     }
 }
