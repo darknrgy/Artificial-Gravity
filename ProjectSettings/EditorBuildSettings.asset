@@ -7,7 +7,9 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: Assets/Scenes/Artifical Gravity on an Uneven Astroid.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Inverted Physics.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Magnetic Torque.unity
+  - enabled: 1
+    path: Assets/Scenes/Dan - HUD.unity

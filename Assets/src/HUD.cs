@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class HUD : MonoBehaviour {
 
-    public Rigidbody MyRigidBody;
-    public TextMesh Velocity;
-    public TextMesh Altitude;
+    public Text Velocity;
+    public Text Altitude;
     
     // Use this for initialization
 	void Start () {
