@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TrackElevator : MonoBehaviour {
 	// TODO, apply -LastForce at different intervals (4/6s, 5/6s, 6/6s of distance) to next point
-	public Vector3[] MotionPath;
+	public GameObject[] MotionPath;
 	public float[] TargetVelocity;
 	public bool DebugDraw;
 
@@ -18,7 +18,7 @@ public class TrackElevator : MonoBehaviour {
 	private int currentTargetPoint = 0;
 	private Vector3 debugDirection;
 
-	private const float MIN_DIST = 1.0f;
+	private const float MIN_DIST = 2.0f;
 
 	private Vector3 LastForce = Vector3.zero;
 
@@ -29,7 +29,7 @@ public class TrackElevator : MonoBehaviour {
 		originPath = new Vector3[MotionPath.Length + 1];
 		originPath [0] = gameObject.transform.position;
 		for (int i = 0; i < MotionPath.Length; ++i) {
-			originPath [i + 1] = MotionPath [i];
+			originPath [i + 1] = MotionPath [i].transform.position;
 		}
 	}
 	
@@ -78,7 +78,7 @@ public class TrackElevator : MonoBehaviour {
 
 	private void moveTowardsPoint(Vector3 p) {
 		Vector3 diff = p - gameObject.transform.position;
-		Vector3 force = diff * gameObject.GetComponent<Rigidbody> ().mass * TargetVelocity [currentTargetPoint];
+		Vector3 force = diff.normalized * gameObject.GetComponent<Rigidbody> ().mass * TargetVelocity [currentTargetPoint - 1];
 		gameObject.GetComponent<Rigidbody>().AddForce(force);
 		gameObject.GetComponent<Rigidbody> ().AddForce (-LastForce);
 		LastForce = force;
