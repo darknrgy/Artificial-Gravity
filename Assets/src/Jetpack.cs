@@ -33,7 +33,7 @@ public class Jetpack : MonoBehaviour {
             InputService.RightStickX * joystickAmplitude)
         );
 
-        // Apply joystick input for thrut
+        // Apply joystick input for thrust
         rigidbody.AddRelativeForce(
             new Vector3(InputService.MixedTriggerButtons * thrustAmplitude, 
             InputService.MixedTrigger * thrustAmplitude, 
