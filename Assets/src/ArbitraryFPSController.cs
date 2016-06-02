@@ -14,10 +14,6 @@ public class ArbitraryFPSController : MonoBehaviour {
     public void Apply() {
         applyTorque();
         applyLinear();
-
-        if (Input.GetButton("Center Joystick")) {
-            CalibrateJoystick();
-        }
     }
 
     protected void applyLinear() {
@@ -43,21 +39,4 @@ public class ArbitraryFPSController : MonoBehaviour {
         rigidbody.angularDrag = 10f;
         rigidbody.AddTorque(new Vector3(xComponent, yComponent, zComponent)* 100 * magnitude);        
     }
-
-    protected float xCal = 0;
-    protected float yCal = 0;
-    protected float zCal = 0;
-    protected float tvCal = 0;
-    protected float tCal = 0;
-    protected float tFwdCal = 0;
-    protected float tRevCal = 0;
-
-    void CalibrateJoystick() {
-        xCal = Input.GetAxis("Roll");
-        yCal = Input.GetAxis("Pitch");
-        zCal = Input.GetAxis("Yaw");
-        tvCal = Input.GetAxis("Thrust Vertical");
-        tCal = Input.GetAxis("Thrust");
-    }
-
 }

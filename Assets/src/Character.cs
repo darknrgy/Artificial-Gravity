@@ -7,7 +7,7 @@ public class Character : MonoBehaviour {
 
     const int JETPACK_MODE = 1;
     const int GROUND_MODE = 2;
-    protected int mode = JETPACK_MODE;
+    protected int mode = GROUND_MODE;
 
     public void Update() {
         switch (mode) {
