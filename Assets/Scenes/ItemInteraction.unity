@@ -565,6 +565,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 51322551}
   m_Mesh: {fileID: 4300000, guid: 6c76655500acb4588973bd8ac375dcc6, type: 2}
+--- !u!1 &69936467 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 133638, guid: ab61d301fedf5d64c8984019d19c7aa6, type: 2}
+  m_PrefabInternal: {fileID: 2059954876}
 --- !u!1 &70671793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,6 +1829,7 @@ GameObject:
   - 135: {fileID: 159895892}
   - 23: {fileID: 159895891}
   - 114: {fileID: 159895890}
+  - 114: {fileID: 159895895}
   m_Layer: 0
   m_Name: TestSphere
   m_TagString: Untagged
@@ -1843,6 +1848,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e2adbdb1ab190d44b126653573f1330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Selector: {fileID: 69936467}
+  Distance: 10
+  DebugDraw: 1
 --- !u!23 &159895891
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1901,6 +1909,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+--- !u!114 &159895895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 159895889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b1035f3ce041c242ac81f936e41581f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OrentationReference: {fileID: 69936467}
 --- !u!1 &160421120
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,14 +9,14 @@ public class SelectableGameObject : MonoBehaviour {
     public GameObject Selector;
     public float Distance;
     public bool DebugDraw;
-    private SelectableObjectCallback callbackObject;
+    private SelectableObjectCallback[] callbackObject;
     private bool outlineDirty = false;
 
     // Use this for initialization
     void Start () {
-        SelectableObjectCallback callbackComponent = gameObject.GetComponent<SelectableObjectCallback>();
+        SelectableObjectCallback[] callbackComponent = gameObject.GetComponents<SelectableObjectCallback>();
         callbackObject = callbackComponent;
-
+        
         Debug.Assert(Selector != null, "Please assign a selector object");
         Debug.Assert(callbackComponent != null, "Please assign a callback to this object, if you are going to make it selectable");
 	}
@@ -42,6 +42,18 @@ public class SelectableGameObject : MonoBehaviour {
             {
                 setThickness(1.0f);
                 outlineDirty = false;
+            }
+        }
+
+        
+        if (outlineDirty && Input.GetKeyUp(KeyCode.F))
+        {
+            foreach (SelectableObjectCallback callback in callbackObject)
+            {
+                if (callback.ObjectSelected())
+                {
+                    break;
+                }
             }
         }
 	}

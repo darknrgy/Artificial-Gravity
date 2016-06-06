@@ -14,7 +14,7 @@ public class SelectableObjectCallback : MonoBehaviour {
 	}
 
 
-    public bool ObjectSelected()
+    public virtual bool ObjectSelected()
     {
         Debug.Log("Hello Selected....");
         return false;
