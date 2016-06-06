@@ -4,6 +4,7 @@
      {
          _Color("Color", Color) = (1,0,0,1)
          _Thickness("Thickness", float) = 4
+		 _MainTex("Texture", 2D) = "white" {}
      }
      SubShader 
      {
@@ -41,6 +42,9 @@
                  float3  viewT : TANGENT;
                  float3  normals : NORMAL;
              };
+
+			sampler2D _MainTex;
+			float4 _MainTex_ST;
  
              v2g vert(appdata_base v)
              {
@@ -55,9 +59,11 @@
              
              half4 frag(g2f IN) : COLOR
              {
-                 //this renders nothing, if you want the base mesh and color
-                 //fill this in with a standard fragment shader calculation
-                 return float4(1.0, 1.0, 0.0, 1.0);
+				 // sample the texture
+				 fixed4 col = tex2D(_MainTex, IN.uv);
+				// apply fog
+				//UNITY_APPLY_FOG(i.fogCoord, col);
+				return col;
              }
              ENDCG
          }
@@ -98,9 +104,9 @@
                  v2g OUT;
 
 				 float4x4 modifiedMVP = UNITY_MATRIX_MVP;
-				 modifiedMVP[0][0] *= 1.1;  modifiedMVP[0][1] *= 1.1;  modifiedMVP[0][2] *= 1.1;
-				 modifiedMVP[1][0] *= 1.1;  modifiedMVP[1][1] *= 1.1; modifiedMVP[1][2] *= 1.1;
-				 modifiedMVP[2][0] *= 1.1;  modifiedMVP[2][1] *= 1.1; modifiedMVP[2][2] *= 1.1;
+				 modifiedMVP[0][0] *= _Thickness;  modifiedMVP[0][1] *= _Thickness;  modifiedMVP[0][2] *= _Thickness;
+				 modifiedMVP[1][0] *= _Thickness;  modifiedMVP[1][1] *= _Thickness; modifiedMVP[1][2] *= _Thickness;
+				 modifiedMVP[2][0] *= _Thickness;  modifiedMVP[2][1] *= _Thickness; modifiedMVP[2][2] *= _Thickness;
                  OUT.pos = mul(modifiedMVP, v.vertex);
                  
                  OUT.uv = v.texcoord;
@@ -113,7 +119,7 @@
              half4 frag(g2f IN) : COLOR
              {
                  _Color.a = 1;
-                 return float4(1.0, 1.0, 1.0, 1.0);
+                 return _Color;
              }
              
              ENDCG
