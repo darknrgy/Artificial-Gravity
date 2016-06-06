@@ -9,6 +9,9 @@ public class OrientationSelectableObjectCallback : SelectableObjectCallback {
     private bool movingTowards = false;
     private Quaternion rotateTowards;
 
+    private const float SELECTION_DISTANCE = 3.0f;
+    private const float SPEED = 10.0f;
+
 	// Use this for initialization
 	void Start () {
         Debug.Assert(OrentationReference != null, "Please set a rotation reference object");
@@ -27,8 +30,16 @@ public class OrientationSelectableObjectCallback : SelectableObjectCallback {
             rotateTowards = Quaternion.LookRotation(OrentationReference.transform.position - gameObject.transform.position, OrentationReference.transform.up);
             gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, rotateTowards, Time.deltaTime);
         }
-        
-	}
+    }
+
+    void FixedUpdate()
+    {
+        if (movingTowards)
+        {
+            Vector3 relative = OrentationReference.transform.position + (OrentationReference.transform.forward.normalized * SELECTION_DISTANCE);
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, relative, SPEED * Time.deltaTime);
+        }
+    }
 
     override public bool ObjectSelected()
     {
