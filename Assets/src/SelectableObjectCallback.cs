@@ -19,4 +19,10 @@ public class SelectableObjectCallback : MonoBehaviour {
         Debug.Log("Hello Selected....");
         return false;
     }
+
+    public virtual bool ObjectDeselected()
+    {
+        Debug.Log("Hello Deselected...");
+        return false;
+    }
 }

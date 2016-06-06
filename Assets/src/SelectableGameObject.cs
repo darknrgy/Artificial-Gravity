@@ -2,15 +2,18 @@
 using System.Collections;
 
 public class SelectableGameObject : MonoBehaviour {
-
-    /* 
-     * 
-     */
+    // GameObject that the selected object will use as the basis of raycasting for collision
     public GameObject Selector;
+
+    // Distance we will consider for object selection
     public float Distance;
+
+    // If we want useful debug drawing to be done in scene
     public bool DebugDraw;
+
     private SelectableObjectCallback[] callbackObject;
     private bool outlineDirty = false;
+    private bool objectSelected = false;
 
     // Use this for initialization
     void Start () {
@@ -45,18 +48,43 @@ public class SelectableGameObject : MonoBehaviour {
             }
         }
 
-        
-        if (outlineDirty && Input.GetKeyUp(KeyCode.F))
+
+        if (Input.GetKeyUp(KeyCode.F) && outlineDirty)
         {
-            foreach (SelectableObjectCallback callback in callbackObject)
+            if (objectSelected)
             {
-                if (callback.ObjectSelected())
-                {
-                    break;
-                }
+                notifyDeselection();
+            }
+            else
+            {
+                notifiySelection();
             }
         }
-	}
+    }
+
+    private void notifiySelection()
+    {
+        foreach (SelectableObjectCallback callback in callbackObject)
+        {
+            if (callback.ObjectSelected())
+            {
+                objectSelected = true;
+                break;
+            }
+        }
+    }
+
+    private void notifyDeselection()
+    {
+        foreach (SelectableObjectCallback callback in callbackObject)
+        {
+            if (callback.ObjectDeselected())
+            {
+                objectSelected = false;
+                break;
+            }
+        }
+    }
 
     private void setThickness(float thickness)
     {

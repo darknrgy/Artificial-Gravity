@@ -48,4 +48,12 @@ public class OrientationSelectableObjectCallback : SelectableObjectCallback {
         Debug.Log("Second Selected...");
         return true;
     }
+
+    public override bool ObjectDeselected()
+    {
+        rotatingTowards = false;
+        movingTowards = false;
+        Debug.Log("Second Deselected....");
+        return true;
+    }
 }
