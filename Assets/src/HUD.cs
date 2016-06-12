@@ -4,13 +4,15 @@ using System.Collections;
 
 public class HUD : MonoBehaviour {
 
+    public GameObject CharacterGameObject;
+
     public Text Velocity;
     public Text Altitude;
     
-    // Use this for initialization
-	void Start () {
-	
-	}
+    void Update () {
+        SetVelocity(CharacterGameObject.GetComponent<Rigidbody>().velocity.magnitude);
+        SetAltitude(926f - CharacterGameObject.transform.position.magnitude);
+    }
 
     public void SetVelocity(float velocity) {
         Velocity.text = "VEL " + velocity.ToString("F1");
@@ -18,10 +20,5 @@ public class HUD : MonoBehaviour {
 
     public void SetAltitude(float altitude) {
         Altitude.text = "ALT " + altitude.ToString("F1");
-    }
-	
-	// Update is called once per frame
-	void Update () {
-
     }
 }
