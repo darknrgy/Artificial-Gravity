@@ -8,12 +8,17 @@ public class OrientationSelectableObjectCallback : SelectableObjectCallback {
     private bool rotatingTowards = false;
     private bool movingTowards = false;
     private Quaternion rotateTowards;
+    private Rigidbody rigidBody;
+    private Vector3 lastForce;
 
-    private const float SELECTION_DISTANCE = 3.0f;
-    private const float SPEED = 10.0f;
+    private const float SELECTION_DISTANCE = 2.0f;
+    private const float SPEED = 100.0f;
 
 	// Use this for initialization
 	void Start () {
+        rigidBody = gameObject.GetComponent<Rigidbody>();
+        lastForce = Vector3.zero;
+        Debug.Assert(rigidBody != null, "Please attach a rigidBody to this object");
         Debug.Assert(OrentationReference != null, "Please set a rotation reference object");
 	}
 	
@@ -36,8 +41,30 @@ public class OrientationSelectableObjectCallback : SelectableObjectCallback {
     {
         if (movingTowards)
         {
-            Vector3 relative = OrentationReference.transform.position + (OrentationReference.transform.forward.normalized * SELECTION_DISTANCE);
-            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, relative, SPEED * Time.deltaTime);
+           
+            Vector3 diff = OrentationReference.transform.position - gameObject.transform.position;
+            Vector3 frc = diff * SPEED;
+            rigidBody.AddForce(-lastForce);
+            rigidBody.AddForce(frc);
+            lastForce = frc;
+
+            if (DebugDraw)
+            {
+                Debug.DrawRay(gameObject.transform.position, diff, Color.grey);
+            }
+            
+            if (Vector3.Distance(gameObject.transform.position, OrentationReference.transform.position) <= SELECTION_DISTANCE)
+            {
+                rigidBody.AddForce(-lastForce);
+                
+            }
+
+            // I'm going to leave this in commented form
+            // This code will handle translating to infront of the orientation reference vis a moveTowards call mutating the position directly.
+            // Since we are using this for a physics based game, the consequence of using this will be that it can have strange interations with
+            // the physics of target object. 
+            //Vector3 relative = OrentationReference.transform.position + (OrentationReference.transform.forward.normalized * SELECTION_DISTANCE);
+            //gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, relative, SPEED * Time.deltaTime);
         }
     }
 

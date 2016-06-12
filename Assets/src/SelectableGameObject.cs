@@ -41,7 +41,7 @@ public class SelectableGameObject : MonoBehaviour {
         }
         else
         {
-            if (outlineDirty)
+            if (outlineDirty && !objectSelected)
             {
                 setThickness(1.0f);
                 outlineDirty = false;
@@ -49,7 +49,7 @@ public class SelectableGameObject : MonoBehaviour {
         }
 
 
-        if (Input.GetKeyUp(KeyCode.F) && outlineDirty)
+        if (Input.GetKeyUp(KeyCode.F))
         {
             if (objectSelected)
             {
