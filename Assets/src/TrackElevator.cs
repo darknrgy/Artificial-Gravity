@@ -16,6 +16,7 @@ public class TrackElevator : MonoBehaviour {
 	private MOTION_STATE currentMotionState;
 	private int currentTargetPoint = 0;
 	private Vector3 debugDirection;
+    private Rigidbody rigidBody;
 
 	private const float MIN_DIST = 1.0f;
 
@@ -28,6 +29,8 @@ public class TrackElevator : MonoBehaviour {
 		for (int i = 0; i < MotionPath.Length; ++i) {
 			originPath [i + 1] = MotionPath [i].transform.position;
 		}
+        rigidBody = gameObject.GetComponent<Rigidbody>();
+        Debug.Assert(rigidBody != null, "Please attach a rigidBody to the elevator object....");
 	}
 	
 	// Update is called once per frame
@@ -48,6 +51,7 @@ public class TrackElevator : MonoBehaviour {
 		if (currentMotionState == MOTION_STATE.IN_MOTION
 			&& Vector3.Distance(gameObject.transform.position, originPath[currentTargetPoint]) < MIN_DIST) {
 
+            stopMotion();
 			Debug.Log ("Elevator is within proximity of destination point, relocating...");
 			currentTargetPoint++;
 			if (currentTargetPoint >= originPath.Length) {
@@ -60,7 +64,14 @@ public class TrackElevator : MonoBehaviour {
 		}
 
 		if (currentMotionState == MOTION_STATE.IN_MOTION) {
-            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, originPath[currentTargetPoint], Time.deltaTime * TargetVelocity[currentTargetPoint]);
+            float currentVelocity = rigidBody.velocity.magnitude;
+            Vector3 diff = originPath[currentTargetPoint] - gameObject.transform.position;
+            Vector3 dir = diff.normalized;
+
+            if (currentVelocity == 0.0f)
+            {
+                rigidBody.AddForce(dir * TargetVelocity[currentTargetPoint], ForceMode.VelocityChange);
+            }
         }
 			
 		if (DebugDraw) {
@@ -69,6 +80,12 @@ public class TrackElevator : MonoBehaviour {
 
 
 	}
+
+    private void stopMotion()
+    {
+        Vector3 velocity = rigidBody.velocity;
+        rigidBody.AddForce(-velocity, ForceMode.VelocityChange);
+    }
 
 	private void moveTowardsPoint(Vector3 p) {
 		Vector3 diff = p - gameObject.transform.position;
