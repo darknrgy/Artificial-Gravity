@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// TODO need to keep objects in the elvator lockstep in relative position...
 public class TrackElevator : MonoBehaviour {
 	public GameObject[] MotionPath;
 	public float[] TargetVelocity;
@@ -63,6 +64,8 @@ public class TrackElevator : MonoBehaviour {
 		}
 
 		if (currentMotionState == MOTION_STATE.IN_MOTION) {
+            // HACK, we will need to do this for everything 'in' the current elevator...
+            GameObject.Find("Character").transform.parent = gameObject.transform;
             float distCovered = (Time.time - startTime) * TargetVelocity[currentTargetPoint];
             float fracJourney = distCovered / journeyLength;
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, originPath[currentTargetPoint], fracJourney);

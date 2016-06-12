@@ -4502,7 +4502,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 415041073}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -916.63, y: 87.69, z: 3.04}
+  m_LocalPosition: {x: -911.23, y: 87.69, z: 25.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -25883,7 +25883,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 495068, guid: ab61d301fedf5d64c8984019d19c7aa6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -911.49
+      value: -910.96
       objectReference: {fileID: 0}
     - target: {fileID: 495068, guid: ab61d301fedf5d64c8984019d19c7aa6, type: 2}
       propertyPath: m_LocalPosition.y
@@ -25891,7 +25891,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 495068, guid: ab61d301fedf5d64c8984019d19c7aa6, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -7.89
+      value: 20.5
       objectReference: {fileID: 0}
     - target: {fileID: 495068, guid: ab61d301fedf5d64c8984019d19c7aa6, type: 2}
       propertyPath: m_LocalRotation.x
@@ -26484,6 +26484,10 @@ Prefab:
     - target: {fileID: 400828, guid: ab61d301fedf5d64c8984019d19c7aa6, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419868, guid: ab61d301fedf5d64c8984019d19c7aa6, type: 2}
+      propertyPath: m_Mass
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11406874, guid: ab61d301fedf5d64c8984019d19c7aa6, type: 2}
@@ -27292,10 +27296,10 @@ MonoBehaviour:
   - {fileID: 124291892}
   - {fileID: 1969695444}
   TargetVelocity:
-  - 0.1
-  - 0.1
-  - 0.1
-  - 0.1
+  - 4
+  - 4
+  - 4
+  - 4
   DebugDraw: 1
 --- !u!23 &2128697958
 MeshRenderer:
@@ -27349,7 +27353,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2128697955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -914.86, y: 87.880775, z: 10.1}
+  m_LocalPosition: {x: -914.86, y: 87.880775, z: 21.8}
   m_LocalScale: {x: 1, y: 10, z: 10}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
