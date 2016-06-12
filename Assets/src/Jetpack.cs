@@ -7,11 +7,18 @@ public class Jetpack : MonoBehaviour {
     public SoundService SoundService;
     public MagneticShoes MagneticShoes;
     public InputService InputService;
-    protected GameObject target;
 
-    public void Apply(GameObject target) {
+    protected new Rigidbody rigidbody;
 
-        this.target = target;
+    float audioSmoothing = 0.95f;
+
+    void Start() {
+        rigidbody = GetComponent<Rigidbody>();
+    }
+
+    public void Apply() {
+        rigidbody.angularDrag = 0f;
+        rigidbody.drag = 0f;
 
         float joystickAmplitude = 0.5f * PowerScale;
         float thrustAmplitude = 3.0f * PowerScale;
@@ -23,8 +30,6 @@ public class Jetpack : MonoBehaviour {
         }
    
         // Apply joystick input to torque
-        var rigidbody = target.GetComponent<Rigidbody>();
-
         rigidbody.angularDrag = 0.0f;
 
         rigidbody.AddRelativeTorque(
@@ -41,35 +46,39 @@ public class Jetpack : MonoBehaviour {
         );
 
         // Play Jetpack sounds
-        float smoothing = 0.95f;
-
         if (InputService.MixedTrigger < 0) {
-            SoundService.PlayAudioForJoystick(0, InputService.MixedTrigger, smoothing);
-            SoundService.PlayAudioForJoystick(1, 0, smoothing);
+            SoundService.PlayAudioForJoystick(0, InputService.MixedTrigger, audioSmoothing);
+            SoundService.PlayAudioForJoystick(1, 0, audioSmoothing);
         } else {
-            SoundService.PlayAudioForJoystick(0, 0, smoothing);
-            SoundService.PlayAudioForJoystick(1, InputService.MixedTrigger, smoothing);
+            SoundService.PlayAudioForJoystick(0, 0, audioSmoothing);
+            SoundService.PlayAudioForJoystick(1, InputService.MixedTrigger, audioSmoothing);
         }
 
         if (InputService.LeftStickY < 0) {
-            SoundService.PlayAudioForJoystick(4, InputService.LeftStickY, smoothing);
-            SoundService.PlayAudioForJoystick(5, 0, smoothing);
+            SoundService.PlayAudioForJoystick(4, InputService.LeftStickY, audioSmoothing);
+            SoundService.PlayAudioForJoystick(5, 0, audioSmoothing);
         } else {
-            SoundService.PlayAudioForJoystick(4, 0, smoothing);
-            SoundService.PlayAudioForJoystick(5, InputService.LeftStickY, smoothing);
+            SoundService.PlayAudioForJoystick(4, 0, audioSmoothing);
+            SoundService.PlayAudioForJoystick(5, InputService.LeftStickY, audioSmoothing);
         }
 
         if (InputService.MixedTriggerButtons < 0) {
-            SoundService.PlayAudioForJoystick(2, InputService.MixedTriggerButtons, smoothing);
-            SoundService.PlayAudioForJoystick(3, 0, smoothing);
+            SoundService.PlayAudioForJoystick(2, InputService.MixedTriggerButtons, audioSmoothing);
+            SoundService.PlayAudioForJoystick(3, 0, audioSmoothing);
         } else {
-            SoundService.PlayAudioForJoystick(2, 0, smoothing);
-            SoundService.PlayAudioForJoystick(3, InputService.MixedTriggerButtons, smoothing);
+            SoundService.PlayAudioForJoystick(2, 0, audioSmoothing);
+            SoundService.PlayAudioForJoystick(3, InputService.MixedTriggerButtons, audioSmoothing);
         }
 
-        smoothing = 0.8f;
-        SoundService.PlayAudioForJoystick(6, InputService.RightStickX, smoothing);
-        SoundService.PlayAudioForJoystick(7, InputService.RightStickY, smoothing);
-        SoundService.PlayAudioForJoystick(8, InputService.LeftStickX, smoothing);
+        audioSmoothing = 0.8f;
+        SoundService.PlayAudioForJoystick(6, InputService.RightStickX, audioSmoothing);
+        SoundService.PlayAudioForJoystick(7, InputService.RightStickY, audioSmoothing);
+        SoundService.PlayAudioForJoystick(8, InputService.LeftStickX, audioSmoothing);
+    }
+
+    public void PlayNonOpSounds() {
+        for (int soundID = 0; soundID <= 8; soundID ++) {
+            SoundService.PlayAudioForJoystick(soundID, 0, audioSmoothing);
+        }
     }
 }

@@ -32,6 +32,6 @@ public class PhysicsUtility{
     }
 
     public Vector3 GetGravityNormal(Vector3 target) {
-        return GetDeltaVector(target, GetClosestPointOnAxis(target)).normalized;
+        return GetDeltaVector(GetClosestPointOnAxis(target), target).normalized;
     }
 }
