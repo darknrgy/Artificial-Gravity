@@ -55,7 +55,7 @@ public class SelectableGameObject : MonoBehaviour {
             {
                 notifyDeselection();
             }
-            else
+            else if (outlineDirty)
             {
                 notifiySelection();
             }
