@@ -6,8 +6,8 @@ PhysicMaterial:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: AsteroidPhysicMaterial
-  dynamicFriction: 2
-  staticFriction: 2
+  dynamicFriction: 1e+20
+  staticFriction: 1e+28
   bounciness: 0
   frictionCombine: 3
   bounceCombine: 0
