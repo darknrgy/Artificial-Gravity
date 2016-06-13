@@ -19,6 +19,7 @@ public class TrackElevator : MonoBehaviour {
 	private Vector3 debugDirection;
     private float startTime;
     private float journeyLength;
+    private ArrayList parentTable;
 
 
     private const float MIN_DIST = 1.0f;
@@ -32,6 +33,8 @@ public class TrackElevator : MonoBehaviour {
 		for (int i = 0; i < MotionPath.Length; ++i) {
 			originPath [i + 1] = MotionPath [i].transform.position;
 		}
+
+        parentTable = new ArrayList();
 	}
 	
 	// Update is called once per frame
@@ -64,11 +67,17 @@ public class TrackElevator : MonoBehaviour {
 		}
 
 		if (currentMotionState == MOTION_STATE.IN_MOTION) {
-            // HACK, we will need to do this for everything 'in' the current elevator...
-            GameObject.Find("Character").transform.parent = gameObject.transform;
             float distCovered = (Time.time - startTime) * TargetVelocity[currentTargetPoint];
             float fracJourney = distCovered / journeyLength;
+            Vector3 oldPos = gameObject.transform.position;
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, originPath[currentTargetPoint], fracJourney);
+            Vector3 diff = gameObject.transform.position - oldPos;
+
+            // We will manually translate everything in the elevator
+            foreach (GameObject gob in parentTable)
+            {
+                gob.transform.position += diff;
+            }
         }
 			
 		if (DebugDraw) {
@@ -78,7 +87,46 @@ public class TrackElevator : MonoBehaviour {
 
 	}
 
-	private void moveTowardsPoint(Vector3 p) {
+    
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Collision....." + other.name);
+        GameObject gobject = other.gameObject;
+
+        // This is a bit of a work around for the fact that the collider is a child of the character object.
+        if (gobject.layer == LayerMask.NameToLayer("Character"))
+        {
+            Debug.Log("Player intersection....");
+            gobject = GameObject.Find("Character");
+        }
+
+        if (!parentTable.Contains(gobject))
+        {
+            Debug.Log("Adding colliding to translate map");
+            parentTable.Add(gobject);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        Debug.Log("On Collision Exit.....");
+        GameObject gobject = other.gameObject;
+
+        // This is a bit of a work around for the fact that the collider is a child of the character object.
+        if (gobject.layer == LayerMask.NameToLayer("Character"))
+        {
+            Debug.Log("Player intersection....");
+            gobject = GameObject.Find("Character");
+        }
+        if (parentTable.Contains(gobject))
+        {
+            Debug.Log("Removing colliding object from translate map");
+            parentTable.Remove(gobject);
+        }
+    }
+
+
+    private void moveTowardsPoint(Vector3 p) {
 		Vector3 diff = p - gameObject.transform.position;
         startTime = Time.time;
         journeyLength = Vector3.Distance(p, gameObject.transform.position);
